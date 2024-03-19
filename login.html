@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        Login 
+        <title>Email</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <div class="hero">
+            <div class="input-group">
+                <label id="email-label">EMAIL</label>
+                <input type="email" spellcheck="false" id="email" onkeyup="validateEmail()">
+                <span id="email-error"></span>
+            </div>
+        </div>
+        <script>
+            var email = document.getElementById('email');
+            var email_label = document.getElementById('email-label');
+            var email_error = document.getElementById('email-error');
+
+            function validateEmail(){
+                email_label.style.bottom = "51px"
+
+                if(!email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+                    email_error.innerHTML = "Please enter valid mail";
+                    email.style.borderBottomColor = "red";
+                    email_error.style.top = "120%"
+                    return false;
+                }
+                email_error.innerHTML = "";
+                email.style.borderBottomColor = "green";
+                email_error.style.top = "100%"
+
+
+            }
+        </script>
+    </body>
+</html>
